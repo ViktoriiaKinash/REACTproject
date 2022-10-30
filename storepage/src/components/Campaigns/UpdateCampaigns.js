@@ -31,7 +31,7 @@ const UpdateCampaign = (props) => {
         town: event.target.elements.campaignTown.value,
         radius: event.target.elements.campaignRadius.value
     }
-    props.setCampaignList(prev =>  prev.map((i)=>{return props.campaign == i ? campaignToUpdate : i}));
+    props.setCampaignList(prev =>  prev.map((i)=>{return props.campaign === i ? campaignToUpdate : i}));
     togglePopup();
 
   };
@@ -39,10 +39,10 @@ const UpdateCampaign = (props) => {
    return (
       <div className="right">
         <input
-      type="button"
-      value="Update"
-      className="button"
-      onClick={togglePopup}
+        type="button"
+        value="Update"
+        className="button"
+        onClick={togglePopup}
       />
       {isOpen && <Popup
       content={<>

@@ -2,15 +2,14 @@ import React from 'react';
 import AddProduct from "./AddProduct"; 
 import DeleteProduct from "./DeleteProduct";
 import UpdateProduct from "./UpdateProduct";
-import Table from 'react-bootstrap/Table';
 
 const Products = props => {
   return (
     <div>
       <h1 className = "Header">Products</h1>
-      <AddProduct setProductList={props.setProductList} productList={props.productList} campaignList={props.campaignList} />
-      <Table className="campaignTable"> 
-        <thead>
+      <AddProduct setProductList={props.setProductList} productList={props.productList} campaignList={props.campaignList} id={props.productId} setId={props.setProductId} />
+      <table className="table table-striped"> 
+        <thead className='table-dark'>
           <tr>
             <th>Name</th>
             <th>Price</th>
@@ -18,6 +17,8 @@ const Products = props => {
             <th></th>
             <th></th>
           </tr> 
+          </thead>
+          <tbody>
             {
               props.productList.map(product =>
                 <tr key={product.id}>
@@ -33,8 +34,8 @@ const Products = props => {
                 </tr>
               )
             }
-        </thead>
-      </Table>
+        </tbody>
+      </table>
     </div>
     
   )

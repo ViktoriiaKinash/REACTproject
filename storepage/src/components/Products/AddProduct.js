@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import "./AddProduct.scss"; 
 
 const Popup = props => {
     return (
@@ -21,23 +20,24 @@ const AddProduct = (props) => {
   const handleSubmit = event =>{
     event.preventDefault();
     let productToAdd = {
-        id: '3',
+        id: props.id,
         name: event.target.elements.productName.value,
         price: event.target.elements.productPrice.value,
         campaign: event.target.elements.productCampaign.value,
     }
     const newlist = props.productList.concat([productToAdd]);
     props.setProductList(newlist);
-    togglePopup()
+    props.setId(props.id+1);
+    togglePopup();
   };
 
    return (
       <div class="right">
         <input
-      type="button"
-      value="Add"
-      class="button"
-      onClick={togglePopup}
+        type="button"
+        value="Add"
+        class="button"
+        onClick={togglePopup}
       />
       {isOpen && <Popup
       content={<>

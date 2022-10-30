@@ -17,11 +17,10 @@ const AddCampaign = props => {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
-
   const handleSubmit = event =>{
     event.preventDefault();
     let campaignToAdd = {
-        id: '3',
+        id: props.id,
         name: event.target.elements.campaignName.value,
         keywords: event.target.elements.campaignkeyword.value,
         bidAmount: event.target.elements.campaignBidAmount.value,
@@ -32,16 +31,17 @@ const AddCampaign = props => {
     }
     const newlist = props.campaignList.concat([campaignToAdd]);
     props.setCampaignList(newlist);
-    togglePopup()
+    props.setId(props.id+1);
+    togglePopup();
   };
 
    return (
       <div className="right">
         <input
-      type="button"
-      value="Add"
-      className="button"
-      onClick={togglePopup}
+        type="button"
+        value="Add"
+        className="button"
+        onClick={togglePopup}
       />
       {isOpen && <Popup
       content={<>

@@ -1,7 +1,5 @@
 import React, {useState} from "react";
-import "./AddCampaign.scss"; 
-import CampaignList from './CampaignList'
-import { useNavigate } from "react-router-dom";
+import "./AddCampaign.scss";
 
 const divStyle = {
     marginTop: "calc(35vh)",
@@ -39,10 +37,10 @@ const DeleteCampaign = (props) => {
    return (
       <div>
         <input
-      type="button"
-      value="Delete"
-      className="button"
-      onClick={togglePopup}
+        type="button"
+        value="Delete"
+        className="button"
+        onClick={togglePopup}
       />
       {isOpen && <Popup
       content={<>

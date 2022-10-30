@@ -1,10 +1,11 @@
-$ivory-color: #EDE7DC;
-$sand-color: #DCD2CC;
-$brown-color: #5C4E4E;
-$gray-color: #BDC3CB;
-$white: white;
+$brown-color: #3b3535;
 
 .Header{
     color: $brown-color;
     text-align: center;
+    margin-top: 25px;
+}
+
+.campaignsTable{
+    width: 30%;
 }

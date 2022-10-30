@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import "./AddProduct.scss"; 
 
 const Popup = props => {
     return (
@@ -26,7 +25,7 @@ const UpdateProduct = (props) => {
         price: event.target.elements.productPrice.value,
         campaign: event.target.elements.productCampaign.value
     }
-    props.setProductList(prev =>  prev.map((i)=>{return props.product == i ? productToUpdate : i}));
+    props.setProductList(prev =>  prev.map((i)=>{return props.product === i ? productToUpdate : i}));
     togglePopup();
 
   };
@@ -34,10 +33,10 @@ const UpdateProduct = (props) => {
    return (
       <div class="right">
         <input
-      type="button"
-      value="Update"
-      class="button"
-      onClick={togglePopup}
+        type="button"
+        value="Update"
+        class="button"
+        onClick={togglePopup}
       />
       {isOpen && <Popup
       content={<>

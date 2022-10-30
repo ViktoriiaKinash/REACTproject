@@ -34,10 +34,10 @@ const DeleteProduct = (props) => {
    return (
       <div>
         <input
-      type="button"
-      value="Delete"
-      class="button"
-      onClick={togglePopup}
+        type="button"
+        value="Delete"
+        class="button"
+        onClick={togglePopup}
       />
       {isOpen && <Popup
       content={<>

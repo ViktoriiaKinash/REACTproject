@@ -1,25 +1,19 @@
 $ivory-color: #D1D0D0;
-$light-rose-color: #DEB3AD;
-$rose-color: #5C4E4E;
-$gray-color: #BDC3CB;
+$rose-color: #504646;
 $pewter-color: #D1D0D0;
+$white : white;
 
 body{
   background-color: $ivory-color;
   line-height: 2;
 }
-
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-  } 
    
   .navbar { 
     display: flex; 
     justify-content: space-around; 
     align-items: center; 
     height: 75px; 
+    width: 100%;
     background-color: $rose-color; 
     columns: $rose-color;
     z-index: 9999; 
@@ -50,7 +44,7 @@ body{
 
   .campaigns:hover,
   .products:hover { 
-    color: $pewter-color;
+    color: $white;
   }
 
   .mobile-menu-icon{
@@ -72,12 +66,9 @@ body{
 
     .nav-links-mobile{
         position: absolute;
-        display: block;
         list-style: none;
         background-color: $pewter-color;
-        left: 0;
         top: 75px;
-        transition: all 0.5s ease-out;
         width: 100%;
     }
 
@@ -87,9 +78,7 @@ body{
       display: block;
       list-style: none;
       background-color: $pewter-color;
-      left: 0;
       top: 75px;
-      transition: all 0.5s ease-out;
       width: 100%;
   }
 
@@ -97,9 +86,8 @@ body{
     .products{
         color: white;
         text-align: center;
-         padding: 32px;
+        padding: 32px;
         width: 100%;
-        transition: all 0.5s ease;
     }
 
 
