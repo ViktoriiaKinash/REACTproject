@@ -1,8 +1,8 @@
-$ivory-color: #EDE7DC;
-$sand-color: #DCD2CC;
-$rose-color: #CCAFA5;
+$ivory-color: #D1D0D0;
+$light-rose-color: #DEB3AD;
+$rose-color: #5C4E4E;
 $gray-color: #BDC3CB;
-$white: white;
+$pewter-color: #D1D0D0;
 
 body{
   background-color: $ivory-color;
@@ -21,7 +21,8 @@ body{
     align-items: center; 
     height: 75px; 
     background-color: $rose-color; 
-    columns: $rose-color; 
+    columns: $rose-color;
+    z-index: 9999; 
   } 
    
   .Logo { 
@@ -39,16 +40,17 @@ body{
   .campaigns,
   .products { 
     text-decoration: none; 
-    color: $white; 
+    color: $pewter-color; 
     font-size: 20px; 
     padding: 10px 20px; 
     margin: 0 10px; 
     cursor: pointer; 
+    color: $ivory-color;
   }
 
   .campaigns:hover,
   .products:hover { 
-    color: $ivory-color;
+    color: $pewter-color;
   }
 
   .mobile-menu-icon{
@@ -72,12 +74,24 @@ body{
         position: absolute;
         display: block;
         list-style: none;
-        background-color: $sand-color;
+        background-color: $pewter-color;
         left: 0;
         top: 75px;
         transition: all 0.5s ease-out;
         width: 100%;
     }
+
+    
+    .nav-links-mobile:active{
+      position: absolute;
+      display: block;
+      list-style: none;
+      background-color: $pewter-color;
+      left: 0;
+      top: 75px;
+      transition: all 0.5s ease-out;
+      width: 100%;
+  }
 
     .campaigns, 
     .products{
@@ -88,6 +102,7 @@ body{
         transition: all 0.5s ease;
     }
 
+
     .sign-up{
         border: none;
     }
@@ -97,15 +112,12 @@ body{
         position: absolute;
         font-size: 30px;
         color: white;
-        border: none;
-        outline: none;
         top: 15px;
         right: 25px;
     }
 
     .mobileButtonMenu{
       background-color: $rose-color;
-      color: $white;
     }
   }
 

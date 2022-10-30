@@ -22,7 +22,7 @@ const NavBar = () => {
         setIsMobile(!isMobile)
       }>
         {isMobile ? 
-        (<i className="mobileButtonMenu">Close</i>) 
+        (<i className="mobileButtonMenu">x</i>) 
         : (<i className="mobileButtonMenu">Menu</i>)}
     </button> 
     </nav> 

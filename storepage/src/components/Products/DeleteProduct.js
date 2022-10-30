@@ -1,7 +1,4 @@
 import React, {useState} from "react";
-import "./AddCampaign.scss"; 
-import CampaignList from './CampaignList'
-import { useNavigate } from "react-router-dom";
 
 const divStyle = {
     marginTop: "calc(35vh)",
@@ -12,8 +9,6 @@ const iconStyle = {
     top: "calc(35vh)",
     right: "40%"
 }
-
-
 
 const Popup = props => {
     return (
@@ -26,30 +21,25 @@ const Popup = props => {
     );
   };
 
-const DeleteCampaign = (props) => {
+const DeleteProduct = () => {
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
-
-  function deleteSelectedCampaign(campaign){
-    props.setCampaignList(prev =>  prev.filter(el => el.id !== campaign.id));
-  }
-
    return (
       <div>
         <input
       type="button"
       value="Delete"
-      className="button"
+      class="button"
       onClick={togglePopup}
       />
       {isOpen && <Popup
       content={<>
-      <form name="deleteCapaign" required>
+      <form name="deleteProduct" required>
         Are you sure? <br></br>
-      <input className="button"value="Yes"  onClick={() => {deleteSelectedCampaign(props.campaign)}}></input>
-      <input className="button" type="submit" value="No"></input>
+      <input class="button" type="submit" value="Yes"></input>
+      <input class="button" type="submit" value="No"></input>
         </form>
       </>}
       handleClose={togglePopup}
@@ -58,4 +48,4 @@ const DeleteCampaign = (props) => {
    );
 }
 
-export default DeleteCampaign;
+export default DeleteProduct;

@@ -12,15 +12,19 @@ $white: white;
     height: 100%;
     top: 0;
     left: 0;
+    align-items: center;
+    justify-content: center;
   }
   
   .box {
+    align-items: center;
+    justify-content: center;
     text-align: center;
     width: 30%;
     margin: 0 auto;
     height: auto;
     max-height: 100vh;
-    margin-top: calc(4vh);
+    margin-top: calc(13vh);
     background: #fff;
     border-radius: 4px;
     padding: 20px;
@@ -33,7 +37,7 @@ $white: white;
     cursor: pointer;
     position: fixed;
     right: 35%;
-    top: calc(4vh);
+    top: calc(13vh);
     background: #ededed;
     border-radius: 50%;
     line-height: 20px;
