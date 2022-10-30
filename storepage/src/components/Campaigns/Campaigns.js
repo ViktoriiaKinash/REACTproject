@@ -4,14 +4,12 @@ import AddCampaign from "./AddCampaign";
 import DeleteCampaign from "./DeleteCampaign";
 import UpdateCampaign from "./UpdateCampaigns";
 import Table from 'react-bootstrap/Table'
-import CampaignList from './CampaignList'
 
-const Campaigns = () => {
-  const [campaignList, setCampaignList] = useState(CampaignList);
+const Campaigns = props => {
   return (
     <div>
       <h1 className = "Header">Campaigns</h1>
-      <AddCampaign />
+      <AddCampaign setCampaignList={props.setCampaignList} campaignList={props.campaignList}/>
       <Table className="campaignTable"> 
         <thead>
           <tr>
@@ -26,20 +24,20 @@ const Campaigns = () => {
             <th></th>
           </tr> 
             {
-              campaignList.map(campaign =>
+              props.campaignList.map(campaign =>
                 <tr key={campaign.id}>
                   <td>{campaign.name}</td>
-                  <td>{campaign.keywords.join(", ")}</td>
+                  <td>{campaign.keywords}</td>
                   <td>{campaign.bidAmount}</td>
                   <td>{campaign.campaignFund}</td>
                   <td>{campaign.status}</td>
                   <td>{campaign.town}</td>
                   <td>{campaign.radius}</td>
                   <td>
-                    <UpdateCampaign campaign={campaign} />
+                    <UpdateCampaign campaign={campaign} setCampaignList={props.setCampaignList} />
                   </td>
                   <td>
-                    <DeleteCampaign campaign = {campaign} setCampaignList={setCampaignList} />
+                    <DeleteCampaign campaign = {campaign} setCampaignList={props.setCampaignList} />
                   </td>
                 </tr>
               )

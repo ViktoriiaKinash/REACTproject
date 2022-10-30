@@ -12,11 +12,25 @@ const Popup = props => {
     );
   };
 
-const AddProduct = () => {
+const AddProduct = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
+
+  const handleSubmit = event =>{
+    event.preventDefault();
+    let productToAdd = {
+        id: '3',
+        name: event.target.elements.productName.value,
+        price: event.target.elements.productPrice.value,
+        campaign: event.target.elements.productCampaign.value,
+    }
+    const newlist = props.productList.concat([productToAdd]);
+    props.setProductList(newlist);
+    togglePopup()
+  };
+
    return (
       <div class="right">
         <input
@@ -27,13 +41,16 @@ const AddProduct = () => {
       />
       {isOpen && <Popup
       content={<>
-      <form name="AddProduct" required>
-        Name:<input class="form-control form-control-sm" type="text" id="fname" name="name" required></input><br></br>
-        Price:<input class="form-control form-control-sm" type="number" min="0" id="lname" name="price" required></input><br></br>
-        Campaign:<select class="form-control form-control-sm" name="campaign" required>
+      <form name="AddProduct" onSubmit={handleSubmit} required>
+        Name:<input class="form-control form-control-sm" type="text" id="productName" name="name" required></input><br></br>
+        Price:<input class="form-control form-control-sm" type="number" min="0" id="productPrice" name="price" required></input><br></br>
+        Campaign:<select class="form-control form-control-sm" name="campaign" id="productCampaign" required>
             <option value="">Select from list...</option>
-            <option>Campaign1</option>
-            <option>Campaign2</option>
+            {
+                props.campaignList.map(campaign =>
+                    <option>{campaign.name}</option>
+                )
+            }
         </select><br></br>
         <input class="button" type="submit" value="Submit"></input>
         </form>

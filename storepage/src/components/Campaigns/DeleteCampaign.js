@@ -48,7 +48,7 @@ const DeleteCampaign = (props) => {
       content={<>
       <form name="deleteCapaign" required>
         Are you sure? <br></br>
-      <input className="button"value="Yes"  onClick={() => {deleteSelectedCampaign(props.campaign)}}></input>
+      <input className="button"value="Yes" type="submit"  onClick={() => {deleteSelectedCampaign(props.campaign)}}></input>
       <input className="button" type="submit" value="No"></input>
         </form>
       </>}

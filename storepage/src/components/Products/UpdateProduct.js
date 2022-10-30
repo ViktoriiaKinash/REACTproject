@@ -17,6 +17,20 @@ const UpdateProduct = (props) => {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
+
+  const handleSubmit = event =>{
+    event.preventDefault();
+    let productToUpdate = {
+        id: '3',
+        name: event.target.elements.productName.value,
+        price: event.target.elements.productPrice.value,
+        campaign: event.target.elements.productCampaign.value
+    }
+    props.setProductList(prev =>  prev.map((i)=>{return props.product == i ? productToUpdate : i}));
+    togglePopup();
+
+  };
+
    return (
       <div class="right">
         <input
@@ -27,13 +41,16 @@ const UpdateProduct = (props) => {
       />
       {isOpen && <Popup
       content={<>
-      <form name="UpdateProduct" required>
-        Name:<input class="form-control form-control-sm" type="text" id="fname" name="name" value={props.product.name} disabled required></input><br></br>
-        Price:<input class="form-control form-control-sm" type="number" min="0" value={props.product.price} id="lname" name="price" required></input><br></br>
-        Campaign:<select class="form-control form-control-sm" name="campaign" value={props.product.campaign} required>
+      <form name="UpdateProduct" onSubmit={handleSubmit} required>
+        Name:<input class="form-control form-control-sm" type="text" id="productName" name="name" defaultValue={props.product.name} disabled required></input><br></br>
+        Price:<input class="form-control form-control-sm" type="number" min="0" defaultValue={props.product.price} id="productPrice" name="price" required></input><br></br>
+        Campaign:<select class="form-control form-control-sm" name="campaign" id="productCampaign" defaultValue={props.product.campaign} required>
             <option value="">Select from list...</option>
-            <option>Campaign1</option>
-            <option>Campaign2</option>
+            {
+                props.campaignList.map(campaign =>
+                    <option>{campaign.name}</option>
+                )
+            }
         </select><br></br>
         <input class="button" type="submit" value="Submit"></input>
         </form>

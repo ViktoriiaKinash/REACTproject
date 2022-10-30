@@ -4,26 +4,11 @@ import DeleteProduct from "./DeleteProduct";
 import UpdateProduct from "./UpdateProduct";
 import Table from 'react-bootstrap/Table';
 
-const ProductsList = [
-  {
-    id: '1',
-    name: 'Telefon',
-    price: 1000,
-    campaign: "Campaign1"
-  },
-  {
-    id: '2',
-    name: 'Laptop',
-    price: 3000,
-    campaign: "Campaign2"
-  }
-];
-
-const Products = () => {
+const Products = props => {
   return (
     <div>
       <h1 className = "Header">Products</h1>
-      <AddProduct />
+      <AddProduct setProductList={props.setProductList} productList={props.productList} campaignList={props.campaignList} />
       <Table className="campaignTable"> 
         <thead>
           <tr>
@@ -34,16 +19,16 @@ const Products = () => {
             <th></th>
           </tr> 
             {
-              ProductsList.map(product =>
+              props.productList.map(product =>
                 <tr key={product.id}>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.campaign}</td>
                   <td>
-                    <UpdateProduct product={product} />
+                    <UpdateProduct product={product} setProductList={props.setProductList} campaignList={props.campaignList}/>
                   </td>
                   <td>
-                    <DeleteProduct />
+                    <DeleteProduct product={product} setProductList={props.setProductList} />
                   </td>
                 </tr>
               )

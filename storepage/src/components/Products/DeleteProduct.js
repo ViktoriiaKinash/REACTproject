@@ -21,11 +21,16 @@ const Popup = props => {
     );
   };
 
-const DeleteProduct = () => {
+const DeleteProduct = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
+
+  function deleteSelectedProduct(campaign){
+    props.setProductList(prev =>  prev.filter(el => el.id !== props.product.id));
+  }
+
    return (
       <div>
         <input
@@ -38,7 +43,7 @@ const DeleteProduct = () => {
       content={<>
       <form name="deleteProduct" required>
         Are you sure? <br></br>
-      <input class="button" type="submit" value="Yes"></input>
+      <input class="button" type="submit" value="Yes" onClick={() => {deleteSelectedProduct(props.product)}}></input>
       <input class="button" type="submit" value="No"></input>
         </form>
       </>}

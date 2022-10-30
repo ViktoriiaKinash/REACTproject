@@ -1,21 +1,21 @@
 let CampaignList = [
     {
       id: '1',
-      name: 'Empik',
-      keywords: ['books', 'read'],
+      name: 'Campaign1',
+      keywords: 'books',
       bidAmount: 12,
       campaignFund: 1000,
-      status: true,
+      status: "off",
       town: 'Krakow',
       radius: 50
     },
     {
       id: '2',
-      name: 'Zara',
-      keywords: ['fashion', 'closes'],
+      name: 'Campaign2',
+      keywords: 'fashion',
       bidAmount: 100,
       campaignFund: 2500,
-      status: false,
+      status: "on",
       town: 'Paris',
       radius: 200
     }
